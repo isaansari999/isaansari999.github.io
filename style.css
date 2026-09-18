@@ -212,6 +212,13 @@ a:hover {
   height: 80px;
   flex-shrink: 0;
   background-color: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.fa-image { 
+  font-size: 6.5rem;
 }
 
 .card-header-row {
