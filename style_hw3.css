@@ -1,6 +1,6 @@
 /* 1. CSS CUSTOM PROPERTIES (VARIABLES) */
 :root {
-    /* Color Palette (3-5 colors maximum, WCAG AA Compliant) */
+    /* Color Palette */
     --clr-bg: #F9F6F0;           /* Background */
     --clr-card: #FFFFFF;         /* Card background */
     --clr-primary: #2D1E18;      /* Brown for main text */
