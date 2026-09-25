@@ -1,0 +1,286 @@
+/* 1. CSS CUSTOM PROPERTIES (VARIABLES) */
+:root {
+    /* Color Palette (3-5 colors maximum, WCAG AA Compliant) */
+    --clr-bg: #F9F6F0;           /* Background */
+    --clr-card: #FFFFFF;         /* Card background */
+    --clr-primary: #2D1E18;      /* Brown for main text */
+    --clr-accent: #C86D51;       /* Warm terracotta accent */
+    --clr-secondary: #E8DFC8;    /* Muted warm beige for subtle borders/bgs */
+    --clr-muted: #6B5E57;        /* Secondary text */
+
+    /* Typography */
+    --ff-heading: 'Playfair Display', Georgia, serif;
+    --ff-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+
+    /* Misc */
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+    --shadow: 0 10px 30px rgba(45, 30, 24, 0.08);
+}
+
+/* 2. RESET & BASE STYLES */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--ff-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--clr-primary);
+    background-color: var(--clr-bg);
+    min-height: 100vh;
+    padding: var(--space-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. PAGE LAYOUT WITH CSS GRID (Mobile First) */
+.recipe-container {
+    background: var(--clr-card);
+    width: 100%;
+    max-width: 1100px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: var(--space-md);
+    
+    display: grid;
+    gap: var(--space-md);
+    grid-template-areas:
+        "header"
+        "meta"
+        "desc"
+        "ingredients"
+        "instructions"
+        "footer";
+}
+
+/* Desktop Grid Layout */
+@media (min-width: 48rem) {
+    body {
+        padding: var(--space-xl);
+    }
+
+    .recipe-container {
+        padding: var(--space-xl);
+        gap: var(--space-lg);
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-areas:
+            "header header"
+            "meta meta"
+            "desc desc"
+            "ingredients instructions"
+            "footer footer";
+    }
+}
+
+/* Assigning Grid Areas */
+.recipe-header       { grid-area: header; }
+.recipe-meta         { grid-area: meta; }
+.recipe-description  { grid-area: desc; }
+.ingredients-section { grid-area: ingredients; }
+.instructions-section{ grid-area: instructions; }
+.recipe-footer       { grid-area: footer; }
+
+/* 
+   4. COMPONENT STYLES & FLEXBOX LAYOUTS
+*/
+
+/* Header Region */
+.recipe-header {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-md);
+}
+
+@media (min-width: 48rem) {
+    .recipe-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header-content { flex: 1; }
+}
+
+.recipe-title {
+    font-family: var(--ff-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--clr-primary);
+    line-height: 1.2;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+@media (min-width: 48rem) {
+    .recipe-image {
+        width: 320px;
+        height: 220px;
+    }
+}
+
+/* Meta Bar (Flexbox) */
+.recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    background-color: var(--clr-bg);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    justify-content: space-between;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 90px;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--clr-muted);
+    font-weight: 600;
+}
+
+.meta-value {
+    font-weight: 700;
+    color: var(--clr-accent);
+}
+
+/* Description */
+.recipe-description p {
+    font-size: 1.05rem;
+    color: var(--clr-muted);
+}
+
+/* Section Titles */
+h2 {
+    font-family: var(--ff-heading);
+    font-size: 1.5rem;
+    color: var(--clr-primary);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--clr-secondary);
+}
+
+/* Ingredients Section (Interactive Kitchen Usability) */
+.ingredients-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.ingredients-list li label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.ingredients-list input[type="checkbox"] {
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid var(--clr-accent);
+    border-radius: 4px;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.ingredients-list input[type="checkbox"]::before {
+    content: "✓";
+    font-size: 0.8rem;
+    color: white;
+    transform: scale(0);
+    transition: transform 0.1s ease-in-out;
+    font-weight: bold;
+}
+
+.ingredients-list input[type="checkbox"]:checked {
+    background-color: var(--clr-accent);
+}
+
+.ingredients-list input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.ingredients-list input[type="checkbox"]:checked + span,
+.ingredients-list label:has(input:checked) {
+    text-decoration: line-through;
+    color: var(--clr-muted);
+}
+
+/* Instructions Section */
+.instructions-list {
+    list-style: none;
+    counter-reset: step-counter;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.instruction-step {
+    counter-increment: step-counter;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.instruction-step::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--clr-secondary);
+    color: var(--clr-primary);
+    font-weight: 700;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+}
+
+.instruction-step strong {
+    color: var(--clr-primary);
+}
+
+/* Footer */
+.recipe-footer {
+    border-top: 1px solid var(--clr-secondary);
+    padding-top: var(--space-md);
+    margin-top: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+    color: var(--clr-muted);
+}
+
+@media (min-width: 48rem) {
+    .recipe-footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
