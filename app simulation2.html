@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Sim</title>
+    <link rel="stylesheet" href="appstyle2.css">
+</head>
+<body>
+    <div class="chat-container">    
+        <div class="chat-header">
+            <h3>Test User</h3>
+            <span class="info">After 5 messages, the intervention will be prompted</span>
+        </div>
+        <div id="message-list" class="message-list">
+            <div class="message match-msg"> Hello!</div>
+            <div class="message user-msg">Hey!</div>
+            <div class="message match-msg"> This is where script message 2 would go...</div>
+            <div class="message user-msg">And then sample script!</div>
+            <div class="message match-msg"> And then the third</div>
+            <div class="message user-msg">And then sample script!</div>
+            <div class="message match-msg"> And then the fourth</div>
+            <div class="message user-msg">And then sample script!</div>
+            <div class="message match-msg"> Time for you to send a message now!</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Get the conversation started...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <div id="custom-intprompt" class="intprompt hidden">
+        <div class="prompt-content">
+            <h3>Are you sure about this message?</h3>
+            <p>This looks a bit risky. Want to edit it?</p>
+            <button id="intprompt-edit">Edit Message</button>
+            <button id="intprompt-confirm">Send Anyway</button>
+        </div>
+    </div>
+    <script src="appscript2.js"></script>
+</body>
+</html>
