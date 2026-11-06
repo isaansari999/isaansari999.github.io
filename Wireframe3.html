@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Sim</title>
+    <script src="https://kit.fontawesome.com/d1a7ef58e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Wireframe3_Style.css">
+</head>
+<body>
+    <div class="chat-container">    
+        <div class="chat-header">
+            <button class="back-btn">
+                <i class="fa-solid fa-circle-chevron-left"></i>
+            </button>
+            <div class="header-profile">
+                <div class="pfp-circle-container">
+                    <img class="pfp-portrait" src="https://images.unsplash.com/photo-1636548646163-a14de6514ce0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D">
+                </div>
+                <!-- <i class="fa-solid fa-circle-user"></i> -->
+                <h3>Test User</h3>
+            </div>
+            <button class="meatball-menu" id="meatball-menu">
+                <i class="fa-solid fa-ellipsis"></i>
+            </button>
+            <div id="dropdown-menu" class="dropdown-menu hidden">
+                <button class="menu-item">View Profile</button>
+                <button class="menu-item">Block User</button>
+                <button class="menu-item">Report</button>
+            </div>
+            <!-- <span class="info">After 5 messages, the intervention will be prompted</span> -->
+        </div>
+        <div id="message-list" class="message-list">
+            <div class="message match-msg"> Hello!</div>
+            <div class="message user-msg">Hey!</div>
+            <div class="message match-msg"> This is where script message 2 would go...</div>
+            <div class="message user-msg">And then sample script!</div>
+            <div class="message match-msg"> And then the third</div>
+            <div class="message user-msg">And then sample script!</div>
+            <div class="message match-msg"> And then the fourth</div>
+            <div class="message user-msg">And then sample script!</div>
+            <div class="message match-msg"> Time for you to send a message now!</div>
+        </div>
+        <!-- From Uiverse.io by mrhyddenn --> 
+        
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Get the conversation started...">
+            <button id="send-btn" class="send-arrow-btn">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="custom-intprompt" class="intprompt hidden">
+        <div class="prompt-content">
+            <h3>Are you sure about this message?</h3>
+            <p>This looks a bit risky. Want to edit it?</p>
+            <button id="intprompt-edit">Edit Message</button>
+            <button id="intprompt-confirm">Send Anyway</button>
+        </div>
+    </div>
+    <script src="Wireframe3_Script.js"></script>
+</body>
+</html>
