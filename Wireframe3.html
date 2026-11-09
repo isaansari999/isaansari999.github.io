@@ -10,7 +10,7 @@
 <body>
     <div class="chat-container">    
         <div class="chat-header">
-            <button class="back-btn">
+            <button class="back-btn" id="back-btn">
                 <i class="fa-solid fa-circle-chevron-left"></i>
             </button>
             <div class="header-profile">
@@ -22,17 +22,24 @@
             <button class="meatball-menu" id="meatball-menu">
                 <i class="fa-solid fa-ellipsis"></i>
             </button>
+            <!-- <select id="script-control" class="script-select">
+                <option value="0">Version A</option>
+                <option value="1">Version B</option>
+                <option value="2">Version C</option>        Old, uncomment if want the old script switching back
+                <option value="3">Version D</option>
+                <option value="4">Version E</option>
+            </select>
+        -->
             <div id="dropdown-menu" class="dropdown-menu hidden">
                 <button class="menu-item">View Profile</button>
                 <button class="menu-item" id="switch-match-btn">Switch Match</button>
-                <button class="menu-item" id="switch-script-btn">Switch Script</button>
                 <button class="menu-item">Block User</button>
                 <button class="menu-item">Report</button>
             </div>
             <!-- <span class="info">After 5 messages, the intervention will be prompted</span> -->
         </div>
         <div id="message-list" class="message-list">
-            <div class="message match-msg"> Hello!</div>
+           <!-- <div class="message match-msg"> Hello!</div>
             <div class="message user-msg">Hey!</div>
             <div class="message match-msg"> This is where script message 2 would go...</div>
             <div class="message user-msg">And then sample script!</div>
@@ -40,12 +47,12 @@
             <div class="message user-msg">And then sample script!</div>
             <div class="message match-msg"> And then the fourth</div>
             <div class="message user-msg">And then sample script!</div>
-            <div class="message match-msg"> Time for you to send a message now!</div>
-        </div>
+            <div class="message match-msg"> Time for you to send a message now!</div> -->
+        </div> 
         <!-- From Uiverse.io by mrhyddenn --> 
         
         <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Get the conversation started...">
+            <textarea type="text" rows = "1" id="user-input" placeholder="Get the conversation started..."></textarea>
             <button id="send-btn" class="send-arrow-btn">
                 <i class="fa-solid fa-arrow-up"></i>
             </button>

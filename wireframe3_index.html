@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Sim Setup</title>
+    <script src="https://kit.fontawesome.com/d1a7ef58e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Wireframe3_Style.css">
+</head>
+<body>
+    <div class="setup-container">    
+        <div class="chat-header">
+            <h3>Study Configuration</h3>
+        </div>
+
+        <div class="setup-content">
+            <div class="setup-group">
+                <label>Select Script:</label>
+                <select class="script-select" id="script-control"> 
+                    <option value="0">Version A</option>
+                    <option value="1">Version B</option>
+                    <option value="2">Version C</option>
+                    <option value="3">Version D</option>
+                    <option value="4">Version E</option>
+                </select>
+            </div>
+
+            <div class="setup-group select-match"> 
+                <label>Select Match:</label>
+                <div class="match-options-row">
+                    <div class="pfp-option selected" id="match-karen">
+                        <div class="pfp-circle-container">
+                            <img class="pfp-portrait" src="https://images.unsplash.com/photo-1636548646163-a14de6514ce0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D">
+                        </div>
+                        <span>Karen</span>
+                    </div>
+                    <div class="pfp-option" id="match-alex">
+                        <div class="pfp-circle-container">
+                            <img class="pfp-portrait" src="https://images.unsplash.com/photo-1761821676234-c3c3b643b5ef?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D">
+                        </div>
+                    <span>Alex</span>
+                    </div>
+                </div>
+            </div>
+            <button id="start-btn" class="start-btn">Start Chat</button>
+        </div>
+    </div>
+    <script src="Wireframe3_LW_script.js"></script>
+</body>
+</html>

@@ -10,6 +10,90 @@ body {
     overflow: hidden;
 }
 
+.setup-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    max-height:800px;
+    background: #131313;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+
+.setup-content {
+    padding: 30px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+.setup-group {
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    width:100%;
+}
+
+.pfp-option {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.match-options-row{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+
+.pfp-option.selected .pfp-circle-container {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.start-btn {
+    padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.start-btn:hover {
+    background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+/*.setup-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  Centers items horizontally 
+    justify-content: center;  Centers items vertically 
+    gap: 15px;  Spacing between elements 
+}*/
+
+
 .chat-container {
     position: relative;
     width: 100%;
@@ -143,6 +227,21 @@ body {
     cursor: pointer;
 }
 
+.script-select {
+    background: #1c1c1e;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 12px 15px;
+    border-radius: 12px;
+    text-align: left;
+    font-family: inherit;
+    
+}
+
+.script-select:hover {
+    border-color: #71717a;
+}
+
 
 .message-list {
     flex: 1;
@@ -183,17 +282,22 @@ body {
     background: #1d1d20;
     display: flex;
     gap: 10px;
+    align-items: flex-end;
 }
 
-.chat-input-area input {
+.chat-input-area textarea {
     flex: 1;
     background: #1d1d20;
     border: 1px solid #3f4150;
     border-radius: 20px;
-    padding: 10px 15px;
+    padding: 6px 15px;
     color: white;
     outline: none;
     font-size: 16px;
+    resize: none;
+    overflow-y:hidden;
+    font-family: inherit;
+    min-height: unset;
 }
 
 
