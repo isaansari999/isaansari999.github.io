@@ -36,7 +36,7 @@ document.addEventListener("click", (thing) => {
 })
 
 
-function SwitchMatch(click) {
+function SwitchMatch() {
     /*click.stopPropagation();*/
 
     matchIndex = (matchIndex + 1) % profiles.length
