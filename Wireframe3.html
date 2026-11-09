@@ -31,7 +31,7 @@
             </select>
         -->
             <div id="dropdown-menu" class="dropdown-menu hidden">
-                <button class="menu-item">View Profile</button>
+                <button class="menu-item" id="viewProfile-btn">View Profile</button>
                 <button class="menu-item" id="switch-match-btn">Switch Match</button>
                 <button class="menu-item">Block User</button>
                 <button class="menu-item">Report</button>
@@ -56,6 +56,19 @@
             <button id="send-btn" class="send-arrow-btn">
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
+        </div>
+    </div>
+    <div id="profile-page" class="profile-page hidden">
+        <div class="profile-page-content">
+            <button id="close-profile-btn" class="close-profile-btn">&times;</button>
+            <div class="profile-page-img-container">
+                <img id="page-pfp" class="profile-page-img" src="" alt="Profile Photo">
+            </div>
+            <div class="profile-page-info">
+                <h2 id="page-name">Name, Age</h2>
+                <p id="page-meta" class="profile-meta-text" style="color: #8e8e93; font-size: 14px; margin: -5px 0 5px 0;"></p>
+                <p id="page-bio" class="profile-bio-text">This is a short sample bio for the wireframe simulation.</p>
+            </div>
         </div>
     </div>
 

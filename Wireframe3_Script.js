@@ -30,19 +30,36 @@ const intpromptEdit = document.getElementById("intprompt-edit");
 const intpromptConfirm = document.getElementById("intprompt-confirm");
 const optionsBtn = document.getElementById("meatball-menu");
 const dropdownMenu = document.getElementById("dropdown-menu");
-const switchMatchBtn = document.getElementById("switch-match-btn")
-const profileName = document.getElementById("match-name")
-const profilePfp = document.getElementById("match-pfp")
-const backBtn = document.getElementById("back-btn")
+const switchMatchBtn = document.getElementById("switch-match-btn");
+const profileName = document.getElementById("match-name");
+const profilePfp = document.getElementById("match-pfp");
+const backBtn = document.getElementById("back-btn");
+
+
+const viewProfile = document.getElementById("viewProfile-btn");
+const profilePage = document.getElementById("profile-page");
+const closeProfileBtn = document.getElementById("close-profile-btn");
+const pagePfp = document.getElementById("page-pfp");
+const pageName = document.getElementById("page-name");
+const pageBio = document.getElementById("page-bio");
+const pageMeta = document.getElementById("page-meta");
 /*const switchScript = document.getElementById("script-control") Old, uncomment if needed.*/
 const profiles = [
     {
         name: "Karen",
-        image: "https://images.unsplash.com/photo-1636548646163-a14de6514ce0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+        age: 22,
+        distance: "2 mi",
+        job: "UX Designer at Microsoft",
+        image: "https://images.unsplash.com/photo-1636548646163-a14de6514ce0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        bio: "UX designer by day, outdoor enthusiast by weekend. Looking for someone who can keep up on hiking trails! 🌲☕"
     },
     {
         name: "Alex",
-        image: "https://images.unsplash.com/photo-1761821676234-c3c3b643b5ef?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+        age: 22,
+        distance: "2 mi",
+        job: "UX Designer at Microsoft",
+        image: "https://images.unsplash.com/photo-1779988562881-0efae1426f3d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        bio: "Product manager by day, outdoor enthusiast by weekend. Looking for someone who can keep up on hiking trails! 🌲☕"
     }
 ]
 
@@ -220,8 +237,33 @@ function appendMessage(text, className) {
     messageList.appendChild(msgDiv);
     messageList.scrollTop = messageList.scrollHeight; 
 }
+// profile page stufs
+viewProfile.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownMenu.classList.add("hidden"); // Hide dropdown
 
+    // Populate current profile details
+    const currentProfile = profiles[matchIndex];
+    pagePfp.src = currentProfile.image;
+    pageName.textContent = `${currentProfile.name}, ${currentProfile.age}`;
+    pageMeta.textContent = `${currentProfile.job} • ${currentProfile.distance}`;
+    pageBio.textContent = currentProfile.bio;
 
+    // Show profiel
+    profilePage.classList.remove("hidden");
+});
+
+// Close Profile Page via 'X' button
+closeProfileBtn.addEventListener("click", () => {
+    profilePage.classList.add("hidden");
+});
+
+// Close Profile Page when clicking outside the content box
+profilePage.addEventListener("click", (e) => {
+    if (e.target === profileModal) {
+        profilePage.classList.add("hidden");
+    }
+});
 
 intpromptEdit.addEventListener("click", () => {
     intprompt.classList.add("hidden"); 
