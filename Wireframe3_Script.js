@@ -1,6 +1,7 @@
 let messageCount = 4;
 let pendingMessage = "";
 let matchIndex = 0;
+let scriptIndex = 0;
 
 const inputField = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
@@ -13,6 +14,7 @@ const dropdownMenu = document.getElementById("dropdown-menu");
 const switchMatchBtn = document.getElementById("switch-match-btn")
 const profileName = document.getElementById("match-name")
 const profilePfp = document.getElementById("match-pfp")
+const switchScriptbtn = document.getElementById("switch-script-btn")
 const profiles = [
     {
         name: "Karen",
@@ -21,6 +23,29 @@ const profiles = [
     {
         name: "Alex",
         image: "https://images.unsplash.com/photo-1761821676234-c3c3b643b5ef?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+    }
+]
+
+const scripts = [
+    {
+        script_id: 1,
+        history: [
+            { sender: "match", text: "Your hiking photos are great!" },
+            { sender: "user", text: "Thanks! Do you hike a lot?"},
+            { sender: "match", text: "Most weekends. You?"},
+            { sender: "user", text: "Same haha" },
+        ],
+        pretypedMessage: "Real talk though, what are you into in bed?"
+    },
+    {
+        script_id: 2,
+        history: [
+            { sender: "match", text: "Sorry, been slow to reply this week" },
+            { sender: "user", text: "No worries. Still up for meeting sometime?"},
+            { sender: "match", text: "Most weekends. You?"},
+            { sender: "user", text: "Yeah maybe! I'm kind of far from you though" },
+        ],
+        pretypedMessage: "I'll drive out to you, but I'm not doing all that just for a coffee 😉"
     }
 ]
 
@@ -35,9 +60,27 @@ document.addEventListener("click", (thing) => {
     }
 })
 
+function loadSimulation() {
+    const profile = profiles[matchIndex];
+    const script = scripts[scriptIndex];
 
+    profileName.textContent = profile.name;
+    profilePfp.src = profile.image;
+    messageList.innerHTML = "";
+    appendMatchTimestamp();
+
+    script.history.forEach(msg => {
+        const className = msg.sender === "user" ? "user-msg" : "match-msg";
+        appendMessage(msg.text, className);
+    });
+
+    inputField.value = script.pretypedMessage
+}
+
+
+/* Old function
 function SwitchMatch() {
-    /*click.stopPropagation();*/
+    click.stopPropagation();
 
     matchIndex = (matchIndex + 1) % profiles.length
 
@@ -45,9 +88,17 @@ function SwitchMatch() {
     profileName.textContent = nextProfile.name;
     profilePfp.src = nextProfile.image;
 
-}
+}*/
 
-switchMatchBtn.addEventListener("click", SwitchMatch);
+switchMatchBtn.addEventListener("click", () => {
+    matchIndex = (matchIndex + 1) % profiles.length;
+    loadSimulation();
+});
+
+switchScriptbtn.addEventListener("click", () => {
+    scriptIndex = (scriptIndex + 1) % scripts.length;
+    loadSimulation();
+});
 
 
 sendBtn.addEventListener("click", handleUserSend);
