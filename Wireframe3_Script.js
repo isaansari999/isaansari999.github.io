@@ -1,5 +1,6 @@
 let messageCount = 4;
 let pendingMessage = "";
+let matchIndex = 0;
 
 const inputField = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
@@ -9,6 +10,19 @@ const intpromptEdit = document.getElementById("intprompt-edit");
 const intpromptConfirm = document.getElementById("intprompt-confirm");
 const optionsBtn = document.getElementById("meatball-menu");
 const dropdownMenu = document.getElementById("dropdown-menu");
+const switchMatchBtn = document.getElementById("switch-match-btn")
+const profileName = document.getElementById("match-name")
+const profilePfp = document.getElementById("match-pfp")
+const profiles = [
+    {
+        name: "Karen",
+        image: "https://images.unsplash.com/photo-1636548646163-a14de6514ce0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+    },
+    {
+        name: "Alex",
+        image: "https://images.unsplash.com/photo-1761821676234-c3c3b643b5ef?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+    }
+]
 
 optionsBtn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -21,6 +35,19 @@ document.addEventListener("click", (thing) => {
     }
 })
 
+
+function SwitchMatch(click) {
+    /*click.stopPropagation();*/
+
+    matchIndex = (matchIndex + 1) % profiles.length
+
+    const nextProfile = profiles[matchIndex]
+    profileName.textContent = nextProfile.name;
+    profilePfp.src = nextProfile.image;
+
+}
+
+switchMatchBtn.addEventListener("click", SwitchMatch);
 
 
 sendBtn.addEventListener("click", handleUserSend);
