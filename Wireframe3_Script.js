@@ -223,7 +223,7 @@ function dispatchMessage(text) {
     
     setTimeout(() => {
         const replies = [
-            "This is where our script would go",
+            "um...",
         ];
         const randomReply = replies[Math.floor(Math.random() * replies.length)];
         appendMessage(randomReply, "match-msg");
